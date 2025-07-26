@@ -1,0 +1,181 @@
+/* General Body and Container Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Light background for the page */
+}
+
+/* New main container for the promo and hot sale sections */
+.main-content-area {
+    max-width: 1200px; /* Adjust as needed for your desired overall content width */
+    margin: 40px auto; /* Centers the container horizontally and adds vertical spacing */
+    padding: 0 15px; /* Adds some padding on the sides */
+    display: flex; /* Make it a flex container to manage its children */
+    gap: 30px; /* Gap between the promo banner and hot sale section */
+    align-items: flex-start; /* Align items to the top */
+}
+
+
+/* Promo Banner */
+.promo-banner {
+    flex-shrink: 0; /* Prevent the banner from shrinking */
+    width: 250px; /* Fixed width for the banner as per your design */
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden; /* Ensures image border-radius is applied */
+}
+
+.promo-banner img {
+    width: 100%;
+    height: auto;
+    display: block; /* Remove extra space below image */
+    border-radius: 8px; /* Apply border-radius directly to image if preferred */
+}
+
+/* Hot Sale Section */
+.hot-sale {
+    background: #e53935; /* Red background */
+    color: white;
+    padding: 25px; /* Slightly more padding */
+    border-radius: 12px;
+    flex-grow: 1; /* Allows it to take the remaining space within the .main-content-area */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.hot-sale h2 {
+    font-size: 28px; /* Slightly larger heading */
+    font-weight: bold;
+    margin-bottom: 20px; /* More space below heading */
+    display: flex; /* Make h2 a flex container to align icon and text */
+    align-items: center; /* Center icon and text vertically */
+    gap: 10px; /* Space between icon and text */
+}
+
+.fire-icon {
+    font-size: 28px; /* Match heading font size */
+    color: #ffd700; /* Gold color for the fire icon */
+}
+
+/* Sale Products Container */
+.sale-products {
+    display: flex;
+    gap: 20px; /* Gap between individual product items */
+    justify-content: space-between; /* Distribute items evenly */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+}
+
+/* Individual Sale Item */
+.sale-item {
+    background: white;
+    color: black;
+    border-radius: 12px; /* Slightly more rounded corners */
+    padding: 20px; /* Increased padding */
+    /* Changed width calculation to be based on remaining space */
+    width: calc((100% - 40px) / 3); /* For 3 items per row with 20px gaps (2 gaps = 40px) */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Softer shadow */
+    position: relative;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    transition: transform 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+.sale-item:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.sale-item h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Discount Tag */
+.discount-tag {
+    background-color: #ff4d4d; /* Brighter red for discount */
+    color: white;
+    font-size: 13px; /* Slightly larger font */
+    font-weight: bold;
+    padding: 6px 10px; /* More padding */
+    position: absolute;
+    top: 15px; /* Adjust position */
+    left: 15px; /* Adjust position */
+    border-radius: 6px;
+    z-index: 10; /* Ensure it's above the image */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Sale Item Image */
+.sale-item img {
+    width: 100%;
+    height: 180px; /* Fixed height for images */
+    object-fit: cover; /* Ensures images cover the area without distortion */
+    margin-bottom: 15px; /* More space below image */
+    border-radius: 8px; /* Rounded corners for images */
+}
+
+/* Price Display */
+.sale-item .price {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.sale-item .price del {
+    color: #888;
+    font-size: 15px;
+    margin-right: 8px; /* Space between old and new price */
+}
+
+.sale-item .price span {
+    color: #e53935; /* Red for the new price */
+    font-weight: bold;
+    font-size: 22px; /* Larger new price */
+}
+
+/* Order Button */
+.sale-item button {
+    margin-top: 15px; /* More space above button */
+    background: #f7b731; /* Orange-yellow for the button */
+    color: white;
+    padding: 10px 20px; /* More padding */
+    border: none;
+    border-radius: 25px; /* More rounded button */
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.sale-item button:hover {
+    background-color: #e0a42c; /* Darker on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .main-content-area {
+        flex-direction: column; /* Stack banner and hot sale vertically */
+        align-items: center; /* Center items when stacked */
+        gap: 0; /* Reset gap as items are stacked */
+    }
+
+    .promo-banner {
+        width: 100%; /* Full width for banner on smaller screens */
+        max-width: 300px; /* Limit max width */
+        margin-bottom: 30px; /* Space between banner and hot sale when stacked */
+    }
+
+    .hot-sale {
+        width: 100%; /* Hot sale takes full width on smaller screens */
+    }
+
+    .sale-item {
+        width: calc(50% - 10px); /* 2 items per row */
+    }
+}
+
+@media (max-width: 600px) {
+    .sale-item {
+        width: 100%; /* 1 item per row */
+    }
+}
